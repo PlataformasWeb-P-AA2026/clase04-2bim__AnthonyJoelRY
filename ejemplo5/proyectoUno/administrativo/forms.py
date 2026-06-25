@@ -52,6 +52,12 @@ class NumeroTelefonicoForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+    def clean_telefono(self):
+         #que solo revisa telefonos con inicial 098(Claro) o 099(Movistar)
+         valor = self.cleaned_data['telefono']
+         if not (valor.startswith('098') or valor.startswith('099')):
+             raise forms.ValidationError("Ingrese número de telefono Claro o Movistar")
+         return valor
 
 
 class NumeroTelefonicoEstudianteForm(ModelForm):
@@ -65,3 +71,9 @@ class NumeroTelefonicoEstudianteForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+    def clean_telefono(self):
+         #que solo revisa telefonos con inicial 098(Claro) o 099(Movistar)
+         valor = self.cleaned_data['telefono']
+         if not (valor.startswith('098') or valor.startswith('099')):
+             raise forms.ValidationError("Ingrese número de telefono Claro o Movistar")
+         return valor
