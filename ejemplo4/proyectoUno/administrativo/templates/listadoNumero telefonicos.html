@@ -10,20 +10,20 @@
 <table id="tabla_datos">
   <thead>
     <tr>
-      <th>Nombre de Persona</th>
       <th>Telefono</th>
       <th>Tipo</th>
       <th>Operadora</th>
+      <th>Nombre de Persona</th>
       <th>Editar</th>
     </tr>
   </thead>
   <tbody>
     {% for numero in numeros %}
     <tr>
-      <td>{{ numero.estudiante.nombre }} {{ numero.estudiante.apellido }}</td>
       <td>{{ numero.telefono }}</td>
       <td>{{ numero.tipo }}</td>
       <td>{{ numero.obtener_operadoras }}</td>
+      <td>{{ numero.estudiante.nombre }} {{ numero.estudiante.apellido }}</td>
       <td><a href="{% url 'editar_numero_telefonico' numero.id %}">editar</a></td>
     </tr>
     {% endfor %}
