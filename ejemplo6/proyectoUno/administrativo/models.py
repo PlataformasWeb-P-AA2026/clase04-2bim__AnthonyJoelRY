@@ -34,3 +34,13 @@ class NumeroTelefonico(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.telefono, self.tipo)
+    
+##Correo,comentario y username  y el comentario debe tener minimo 25 caracteres para crearse .
+
+class comment(models.Model):
+    correo = models.EmailField()
+    comentario = models.TextField()
+    username = models.CharField(max_length=100)
+
+    def __str__(self):
+        return "%s %s %s" % (self.correo, self.comentario, self.username)
