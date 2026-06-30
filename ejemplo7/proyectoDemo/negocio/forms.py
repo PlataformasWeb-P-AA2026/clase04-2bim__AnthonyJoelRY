@@ -1,8 +1,8 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
-from django import forms
+from django import forms 
 
-from negocio.models import Restaurante, Chef, Plato
+from negocio.models import Restaurante, Chef, Plato, Comentario
 
 class RestauranteForm(ModelForm):
     class Meta:
@@ -20,3 +20,7 @@ class PlatoForm(ModelForm):
         model = Plato
         fields = ['nombre_plato', 'descripcion', 'precio_plato',
                   'ingredientes_principales', 'chef']
+class ComentarioForm(ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['comentario']
